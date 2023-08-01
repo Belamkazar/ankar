@@ -1,5 +1,7 @@
-﻿const qrcode = require('qrcode-terminal');
+const puppeteer = require('puppeteer');
+const qrcode = require('qrcode-terminal');
 const { Client, LocalAuth } = require('whatsapp-web.js');
+
 const puppeteerOptions = {
   args: ['--no-sandbox'],
 };
@@ -19,8 +21,8 @@ client.on('ready', () => {
 
 // Función para manejar los mensajes entrantes
 client.on('message', async message => {
-  if (message.body === 'willa') {
-    await message.reply('Hola bb');
+  if (message.body === 'hola') {
+    await message.reply('Hola papi');
   }
 });
 
@@ -29,7 +31,7 @@ async function initializeClient() {
   const browser = await puppeteer.launch(puppeteerOptions);
   await client.initialize(browser);
   await client.page.goto('https://web.whatsapp.com/', {
-    waitUntil: 'domcontentloaded',
+    waitUntil: 'domcontentloaded', // Esperar a que el DOM esté completamente cargado
   });
 }
 
