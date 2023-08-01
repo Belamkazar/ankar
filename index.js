@@ -30,6 +30,8 @@ client.on('message', async message => {
 async function initializeClient() {
   const browser = await puppeteer.launch(puppeteerOptions);
   await client.initialize(browser);
+
+  // Acceder a la propiedad 'page' del cliente una vez que está inicializado
   await client.page.goto('https://web.whatsapp.com/', {
     waitUntil: 'domcontentloaded', // Esperar a que el DOM esté completamente cargado
   });
