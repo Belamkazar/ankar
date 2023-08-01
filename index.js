@@ -19,8 +19,8 @@ client.on('ready', () => {
 
 // Función para manejar los mensajes entrantes
 client.on('message', async message => {
-  if (message.body === 'hola') {
-    await message.reply('Hola papi');
+  if (message.body === 'willa') {
+    await message.reply('Hola bb');
   }
 });
 
